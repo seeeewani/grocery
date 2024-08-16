@@ -1,17 +1,21 @@
+// components/grocery_item_tile.dart
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class GroceryItemTile extends StatelessWidget {
   final String itemName;
   final String itemPrice;
   final String imagePath;
   final Color color;
+  void Function()? onPressed;
 
-  const GroceryItemTile({
+  GroceryItemTile({
     super.key,
     required this.itemName,
     required this.itemPrice,
     required this.imagePath,
     required this.color,
+    required this.onPressed,
   });
 
   @override
@@ -45,9 +49,7 @@ class GroceryItemTile extends StatelessWidget {
             const Spacer(),
             // Price + Button
             MaterialButton(
-              onPressed: () {
-                // Handle the button press here
-              },
+              onPressed: onPressed,
               color: color,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10),

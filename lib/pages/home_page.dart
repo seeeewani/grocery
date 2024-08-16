@@ -1,3 +1,4 @@
+// pages/home_page.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:grocery_app/components/grocery_item_tile.dart';
@@ -88,6 +89,10 @@ class HomePage extends StatelessWidget {
                         itemPrice: value.shopItems[index][1],
                         imagePath: value.shopItems[index][2],
                         color: value.shopItems[index][3],
+                        onPressed: () {
+                          Provider.of<CartModel>(context, listen: false)
+                              .addItemToCart(index);
+                        },
                       );
                     },
                   );
